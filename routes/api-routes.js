@@ -23,7 +23,25 @@ router.post("/workouts", ({ body }, res) => {
         });
 });
 
-
+router.put("/workouts/:id", ({ params, body }, res) => {
+    Workout.findByIdAndUpdate(
+        params.id,
+        {
+            $push: {
+                excercises: body,
+            },
+        },
+        {
+            new: true,
+        }
+    )
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.json(err);
+    })
+});
 
 
 module.exports = router;
