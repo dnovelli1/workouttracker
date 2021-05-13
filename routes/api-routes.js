@@ -4,7 +4,7 @@ const Workout = require("../models/workout");
 // Works!!
 
 router.get("/workouts", (req, res) => {
-        Workout.find({})
+    Workout.find({})
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
@@ -13,7 +13,16 @@ router.get("/workouts", (req, res) => {
         })
 });
 
-// router.post("/workouts")
+router.post("/workouts", ({ body }, res) => {
+    Workout.create(body)
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+});
+
 
 
 
