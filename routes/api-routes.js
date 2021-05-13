@@ -1,8 +1,10 @@
 const router = require("express").Router();
-const db = require("../models");
+const Workout = require("../models/workout");
 
-router.post("/workouts", (req, res) => {
-    db.Workout.find({})
+// Works!!
+
+router.get("/workouts", (req, res) => {
+        Workout.find({})
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
@@ -12,3 +14,7 @@ router.post("/workouts", (req, res) => {
 });
 
 // router.post("/workouts")
+
+
+
+module.exports = router;
