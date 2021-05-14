@@ -64,15 +64,19 @@ To run tests, please use the following command:
 
 ## Making
 
+Before the making, here's an example of how the application works:
+
+![Website-Preview](./images/websitepreview.gif)
+
 How was it made? Take a look here!
 
+This is an example of the aggregate method which will allow me to add all of the fields specified into one key value being created.
 
+![Code-Snippet](./images/aggregateexample.PNG)
 
-![Code-Snippet]()
+This is an example of the model of a Workout. 
 
-
-
-![Code-Snippet]()
+![Code-Snippet](./images/models.PNG)
 
 
 ## Questions
