@@ -6,7 +6,7 @@
 
 ## Description
 
-
+In this assignment I was prompted with the task of making a workout tracker. A user will need to be able to add exercises to the most recent workout plan. Next a user will need to be able to add new exercises to a workout plan. Finally the user will need to be able to view the combined weight of multiple exercises from the past seven days as well as the total time duration. All tasks described above are complete. Please take a look into how it was made and the technologies used.
 
 Please have a look at the full application deployed at the link below:
 
@@ -40,11 +40,11 @@ Please have a look at the full application deployed at the link below:
 
 - Node.js - an efficient platform that runs Javascript outside of the web browser.
 
-- MongoDB - 
+- MongoDB - classified as NoSQL which is a document oriented database program.
 
-- Mongoose - 
+- Mongoose - an Object Data Modeling library for MongoDB.
 
-- Robo3T - 
+- Robo3T - a desktop graphical user interface to use with MongoDB.
 
 - Express - framework for Node.js that has multiple built in methods to condense code.
 
