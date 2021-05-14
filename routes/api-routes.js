@@ -4,11 +4,18 @@ const db = require("../models");
 // Works!!
 
 router.get("/workouts", (req, res) => {
-    db.Workout.find({})
+    db.Workout.aggregate([{
+            $addFields: {
+                totalDuration: {
+                    $sum: "$exercises.duration"
+                }
+            }
+        }])
         .then(dbWorkout => {
             res.json(dbWorkout);
         })
         .catch(err => {
+            console.log(err);
             res.json(err);
         })
 });
@@ -28,30 +35,40 @@ router.put("/workouts/:id", ({ params, body }, res) => {
         params.id,
         {
             $push: {
-                excercises: body,
+                exercises: body,
             },
         },
         {
             new: true,
         }
     )
-    .then(dbWorkout => {
-        res.json(dbWorkout);
-    })
-    .catch(err => {
-        res.json(err);
-    })
+        .then(dbWorkout => {
+            res.json(dbWorkout);
+        })
+        .catch(err => {
+            res.json(err);
+        })
 });
 
 router.get("/workouts/range", (req, res) => {
-    db.Workout.find({}).limit(7)
-    .then(dbWorkout => {
-        res.json(dbWorkout)
-    })
-    .catch(err => {
-        res.json(err);
-    })
+    db.Workout.aggregate([{
+        $addFields: {
+            totalDuration: {
+                $sum: "$exercises.duration"
+            }
+        }
+    }]).limit(7)
+        .then(dbWorkout => {
+            res.json(dbWorkout)
+        })
+        .catch(err => {
+            res.json(err);
+        })
 });
+
+
+
+
 
 
 module.exports = router;
